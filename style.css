@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ffd6e0, #ffe8d6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Анимированный коллаж */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("images/photo1.jpg"), 
+              url("images/photo2.jpg"), 
+              url("images/photo3.jpg"), 
+              url("images/photo4.jpg");
+  background-size: 40%, 50%, 45%, 35%;
+  background-position: 10% 20%, 70% 10%, 30% 80%, 80% 70%;
+  background-repeat: no-repeat;
+  animation: movePhotos 60s infinite alternate ease-in-out;
+  opacity: 0.45;
+  transition: background-position 10s ease-in-out;
+  z-index: 1;
+  filter: blur(1px) brightness(1.1);
+}
+
+@keyframes movePhotos {
+  0% {
+    background-position: 10% 20%, 70% 10%, 30% 80%, 80% 70%;
+  }
+  50% {
+    background-position: 12% 18%, 68% 12%, 28% 82%, 78% 68%;
+  }
+  100% {
+    background-position: 15% 25%, 65% 15%, 35% 75%, 75% 65%;
+  }
+}
+
+.content {
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 100, 150, 0.8);
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(-15px); }
+  100% { transform: translateY(15px); }
+}
+
+#title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ffedf3;
+  text-shadow: 0 0 15px rgba(255, 0, 100, 0.8);
+}
+
+#timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.time {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 25px #ff6fa5, 0 0 50px #ffb3c6;
+}
